@@ -1,22 +1,24 @@
 #ifndef GENERATOR_HPP
 #define GENERATOR_HPP
+#define ASIO_STANDALONE
+#define _WIN32_WINNT 0x0500
 
-#include <boost/asio.hpp>
-#include <boost/thread.hpp>
-#include <boost/shared_ptr.hpp>
-#include <boost/thread/mutex.hpp>
+#include <asio.hpp>
+#include <thread>
+#include <mutex>
 #include <random>
 
 
 class Generator {
     private:
-        boost::mutex m_mutex;
-        boost::shared_ptr< boost::asio::io_service > io_service;
-	    boost::shared_ptr< boost::asio::io_service::work > work;
+        std::mutex m_mutex;
+        std::shared_ptr< asio::io_service > io_service;
+	    std::shared_ptr< asio::io_service::work > work;
         std::random_device rd;
     public:
         Generator();
         ~Generator();
+        void io_run();
         int generateNumber();
         void run();
 };
