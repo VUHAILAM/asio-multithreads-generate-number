@@ -13,7 +13,7 @@ class Generator {
     private:
         std::mutex m_mutex;
         std::shared_ptr< asio::io_service > io_service;
-	    std::shared_ptr< asio::io_service::work > work;
+	std::shared_ptr< asio::io_service::work > work;
         std::random_device rd;
     public:
         Generator();

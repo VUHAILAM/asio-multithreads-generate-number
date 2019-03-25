@@ -1,13 +1,13 @@
 cmake_minimum_required(VERSION 3.0)
 
-project(bt)
+project(gen_number_with_5_threads)
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 
 add_executable(
-    bt
+    gen_number_with_5_threads
     Generator.cpp
     main.cpp
 )
 
-target_include_directories(bt PUBLIC ./include)
-target_link_libraries(bt ws2_32 wsock32)
+target_include_directories(gen_number_with_5_threads PUBLIC ./include)
+target_link_libraries(gen_number_with_5_threads ws2_32 wsock32)

@@ -5,10 +5,10 @@
 
 Generator::Generator() {
     this->io_service = std::shared_ptr< asio::io_service >(
-		new asio::io_service
+	new asio::io_service
 	);
     this->work = std::shared_ptr< asio::io_service::work >(
-		new asio::io_service::work( *io_service )
+	new asio::io_service::work( *io_service )
 	);
 }
 
@@ -45,9 +45,9 @@ void Generator::run() {
 
     work.reset();
 
-	for(int i = 0; i < 5; i++) {
-        if(threads[i].joinable()) {
-            threads[i].join();
-        }
+    for(int i = 0; i < 5; i++) {
+       if(threads[i].joinable()) {
+          threads[i].join();
+       }
     }
 }
